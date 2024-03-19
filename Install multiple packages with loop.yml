@@ -1,0 +1,13 @@
+---
+- name: Example multiple packages using loop
+  hosts: all
+  become: true
+  tasks:
+    - name: Install mutiple packages in Node
+      apt:
+        name: "{item}}"
+        state: latest
+      loop:
+        - samba
+        - nginx
+...

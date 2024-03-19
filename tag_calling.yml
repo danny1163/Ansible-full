@@ -1,0 +1,30 @@
+# ---
+# - name
+#   hosts: all
+#   tasks:
+#     - name: Print Message one
+#       debug:
+#         msg: "write anything:{{anisble_user_gid}}"
+#         tags: tagone
+#     - name: Print Message two
+#       debug:
+#         msg: "write anything:{{ansible_env.LOGNAME}}"
+#         tags: tagtwo
+# ...
+
+---
+- name: tag based playbook
+  hosts: all
+  tasks:
+    - name: Print message-1
+      debug:
+        msg: "write anything : {{anisble_user_git}}"
+      tags: demo
+
+    - name: Print message-2
+      debug:
+        msg: "write something: {{anisble_env.LOGNAME}}"
+      tags: demo2
+...
+
+# # # ansible-playbook <> -t <tag_name>

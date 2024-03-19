@@ -1,0 +1,12 @@
+# variable is replace the perticular word in nodez
+# Put the variable above the task, It is use for future purpose, only replace httpd.
+---
+- name: this is my example variable playbook
+  hosts: all
+  become: yes
+  vars:
+    pkgname: httpd
+  tasks:
+    - name: install httpd package
+      action: yum name = "{{pkgname}}" state = installed
+...
